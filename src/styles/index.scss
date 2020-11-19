@@ -5,3 +5,19 @@
 body {
   background-color: $favColor;
 }
+
+.BoardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.SignIn {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.Player {
+  text-align: center;
+}

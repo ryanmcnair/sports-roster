@@ -11,8 +11,8 @@ export default class Auth extends React.Component {
 
   render() {
     return (
-      <div>
-        <button className='btn btn-dark' onClick={this.loginClickEvent}>Sign in with Google</button>
+      <div className='SignIn'>
+        <button className='btn btn-dark' onClick={this.loginClickEvent}><i class="fas fa-football-ball"></i> Sign in with <i class="fab fa-google"></i>oogle</button>
       </div>
     );
   }
