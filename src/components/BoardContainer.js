@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import playerData from '../helpers/data/playerData';
 import Players from './Players';
+import PlayerForm from './Forms';
 
 export default class BoardContainer extends Component {
   state = {
@@ -9,6 +10,22 @@ export default class BoardContainer extends Component {
 
   componentDidMount() {
     this.loadData();
+  }
+
+  addUpdatePlayer = (playerObj) => {
+    if (playerObj.id === '') {
+      playerData.addPlayer(playerObj).then((response) => {
+        if (!response.error) {
+          this.loadData();
+        }
+      });
+    } else {
+      playerData.updatePlayer(playerObj).then((response) => {
+        if (!response.error) {
+          this.loadData();
+        }
+      });
+    }
   }
 
   loadData = () => {
@@ -24,7 +41,8 @@ export default class BoardContainer extends Component {
     const renderPlayerToDom = () => players.map((player) => <Players key={player.id} player={player} />);
     return (
       <div className='BoardContainer'>
-      <h2 className='Header'>Players</h2>
+        <PlayerForm addUpdatePlayer={this.addUpdatePlayer} player={''} />
+      <div className='Header'></div>
         {renderPlayerToDom()}
       </div>
     );
