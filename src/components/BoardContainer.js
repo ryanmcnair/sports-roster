@@ -46,7 +46,7 @@ export default class BoardContainer extends Component {
 
   render() {
     const { players } = this.state;
-    const renderPlayerToDom = () => players.map((player) => <Players key={player.id} player={player} removePlayer={this.removePlayer} />);
+    const renderPlayerToDom = () => players.map((player) => <Players key={player.id} player={player} addUpdatePlayer={this.addUpdatePlayer} removePlayer={this.removePlayer} />);
     return (
       <>
         <PlayerForm addUpdatePlayer={this.addUpdatePlayer} player={''} />

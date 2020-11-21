@@ -6,6 +6,7 @@ export default class PlayerForm extends Component {
     id: this.props.player.id || '',
     name: this.props.player.name || '',
     imageUrl: this.props.player.imageUrl || '',
+    position: this.props.player.position || '',
     number: this.props.player.number || '',
   }
 
@@ -41,7 +42,7 @@ export default class PlayerForm extends Component {
                    />)
                 ))
             }
-            <Button className="mt-3">Submit</Button>
+            <Button className="mt-3" >Submit</Button>
         </Form>
     );
   }

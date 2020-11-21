@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import playerShape from '../helpers/data/playerShape';
-// import Forms from './Forms';
+import Forms from './Forms';
 
 export default class Players extends Component {
   static propTypes = {
@@ -20,7 +20,7 @@ export default class Players extends Component {
   }
 
   render() {
-    const { player, removePlayer, addUpdatePlayer } = this.props;
+    const { player, removePlayer } = this.props;
     const { edit } = this.state;
     return (
       <div className="Player col-md-3 mb-3" id={player.id}>
@@ -32,7 +32,8 @@ export default class Players extends Component {
           </div>
           <div className="card-footer">
             <button className='btn btn-danger my-2' id={player.id} onClick={(e) => removePlayer(e)}>Remove Player</button>
-            <button className="btn btn-info" >Update Player</button>
+            <button className="btn btn-info" onClick={this.editPlayer}>{edit ? 'Close Form' : 'Update Form'}</button>
+            { edit && (<Forms player={player} addUpdatePlayer={this.props.addUpdatePlayer} />)}
           </div>
         </div>
       </div>
