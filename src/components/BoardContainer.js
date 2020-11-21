@@ -36,15 +36,25 @@ export default class BoardContainer extends Component {
     });
   }
 
+  removePlayer = (e) => {
+    const removedPlayer = this.state.players.filter((player) => player.id !== e.target.id);
+    this.setState({
+      players: removedPlayer,
+    });
+    playerData.deletePlayer(e.target.id).then(() => this.loadData());
+  }
+
   render() {
     const { players } = this.state;
-    const renderPlayerToDom = () => players.map((player) => <Players key={player.id} player={player} />);
+    const renderPlayerToDom = () => players.map((player) => <Players key={player.id} player={player} removePlayer={this.removePlayer} />);
     return (
-      <div className='BoardContainer'>
+      <>
         <PlayerForm addUpdatePlayer={this.addUpdatePlayer} player={''} />
+      <div className='BoardContainer'>
       <div className='Header'></div>
         {renderPlayerToDom()}
       </div>
+      </>
     );
   }
 }

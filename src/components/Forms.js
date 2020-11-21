@@ -5,7 +5,7 @@ export default class PlayerForm extends Component {
   state = {
     id: this.props.player.id || '',
     name: this.props.player.name || '',
-    imgUrl: this.props.player.imageUrl || '',
+    imageUrl: this.props.player.imageUrl || '',
     number: this.props.player.number || '',
   }
 
