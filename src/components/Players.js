@@ -12,7 +12,7 @@ export default class Players extends Component {
       <div className="Player col-md-3 mb-3" id={player.id}>
         <div className="card">
           <h5 className="card-title">{player.name}</h5>
-          <img src={player.imgUrl} className="card-img-top" alt="..." />
+          <img src={player.imageUrl} className="card-img-top" alt="..." />
           <div className="card-body">
             <p className="card-text">Position: {player.position}</p>
           </div>
